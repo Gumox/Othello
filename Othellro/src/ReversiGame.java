@@ -13,10 +13,13 @@ public class ReversiGame extends Reversi {
 		checkLD(player,enemy);
 	}
 	public void putStone(int x,int y ,int player,int enemy){
-		changeStoneHorizon(x,y,player,enemy);
-		changeStoneVertical(x,y,player,enemy);
-		changeStoneDagonal(x,y,player,enemy);
-		changeStoneDifferentDagonal(x,y,player,enemy);
+		if(arr[y][x]==3){
+			arr[y][x] = player;
+			changeStoneHorizon(x,y,player,enemy);
+			changeStoneVertical(x,y,player,enemy);
+			changeStoneDagonal(x,y,player,enemy);
+			changeStoneDifferentDagonal(x,y,player,enemy);
+		}
 	}
 	public void countGrayPoint(int[][] arr){
 		for(int i = 0; i < 8; i++){
