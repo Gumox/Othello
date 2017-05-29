@@ -28,13 +28,13 @@ public class ReversiTestForText {
 				System.out.printf("%i¤Ó",i);
 				for(int j = 0; j< 8 ;j++){
 					if(arr[i][j] == 0){
-						System.out.println("¤±");
+						System.out.println("o");
 					}else if(arr[i][j] == 1){
 						System.out.println("B");
 					}else if(arr[i][j] == 2){
 						System.out.println("W");
 					}else if(arr[i][j] == 3){
-						System.out.println("G");
+						System.out.println("O");
 					}
 					if(j == 8){
 						System.out.println("\n");
