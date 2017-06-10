@@ -11,10 +11,12 @@ public class ReversiTestForText {
 		int x = 0,y = 0;
 		
 		Scanner scan = new Scanner(System.in);
+		System.out.println("bphoibkjbpiyvjboivjbyv");
 		
 		ReversiGame gameTest = new ReversiGame(arr);
-		while(gameCount < 2 && gameCount > -1){
+		while(gameCount < 2){
 			gameTest.check(player,  enemy);
+			System.out.printf("arr &i",arr[4][4]);
 			gameTest.countGrayPoint(arr);
 			if(gameCount != 0){
 				if(gameTest.getGrayPoint() != 0){
