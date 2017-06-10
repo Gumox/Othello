@@ -91,6 +91,7 @@ public class Reversi {
 						}
 					}
 				}
+				
 				i = k;
 				j = l;
 			}
