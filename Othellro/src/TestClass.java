@@ -7,6 +7,7 @@ public class TestClass {
 		
 		ReversiGame gameTest = new ReversiGame(arr);
 		gameTest.check(player,  enemy);
+		System.out.println("sss");
 		for(int i = 0; i<8 ;i++){//i=YÃà j=XÃà
 			for(int j = 0; j< 8 ;j++){
 				System.out.printf("%i",arr[i][j]);

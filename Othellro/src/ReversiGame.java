@@ -11,10 +11,10 @@ public class ReversiGame extends Reversi {
 		checkL(player,enemy);
 		checkD(player,enemy);
 		checkU(player,enemy);
-		checkRD(player,enemy);
-		checkRU(player,enemy);
-		checkLD(player,enemy);
-		checkLU(player,enemy);
+		//checkRD(player,enemy);
+		//checkRU(player,enemy);
+		//checkLD(player,enemy);
+		//checkLU(player,enemy);
 	}
 	public void putStone(int x,int y ,int player,int enemy){
 		if(arr[y][x]==3){
