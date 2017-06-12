@@ -8,12 +8,12 @@ public class ReversiTestForText {
 		int gameCount = 0;
 		int amount = 0;
 		int player = 1, enemy = 2, save = 0;
-		int x = 0,y = 0;
+		int x = 0,y = 0,zerosp = 60;
 		
 		Scanner scan = new Scanner(System.in);
 		
 		ReversiGame gameTest = new ReversiGame(arr);
-		while(gameCount < 2){
+		while(gameCount < 2&&zerosp!=0){
 			gameTest.RecountStone();
 			gameTest.ResetGP();
 			gameTest.check(player,  enemy);
@@ -30,7 +30,7 @@ public class ReversiTestForText {
 			}else if(player == 2){
 				System.out.println("White Turn");
 			}
-			if(gameTest.getGrayPoint() == 0){
+			if(gameTest.getGrayPoint() == 2){
 				gameCount++;
 				save = player;
 				player = enemy;
@@ -47,8 +47,18 @@ public class ReversiTestForText {
 					save = player;
 					player = enemy;
 					enemy = save;
+					zerosp--;
 				}
+			}else if(gameCount == 2){
+				break;
 			}
+		}
+		if(gameTest.countBPoint(arr)>gameTest.countWPoint(arr)){
+			System.out.println("Black Win");
+		}else if(gameTest.countBPoint(arr)<gameTest.countWPoint(arr)){
+			System.out.println("White Win");
+		}else if(gameTest.countBPoint(arr)==gameTest.countWPoint(arr)){
+			System.out.println("Drow");
 		}
 	}
 }

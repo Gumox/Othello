@@ -2,8 +2,8 @@ import java.util.Scanner;
 
 public class TestClass {
 	public static void main(String args[]){
-		int[][] arr ={{0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0},{0,0,0,0,1,0,0,0},{0,0,0,1,1,0,0,0}
-	                  ,{0,0,0,2,1,0,0,0},{0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0}};
+		int[][] arr ={{0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0},{0,0,0,0,0,2,0,2},{0,0,0,1,1,1,2,2}
+	                  ,{2,2,2,1,2,1,2,2},{0,0,1,1,1,1,1,2},{0,0,0,0,0,1,2,2},{0,0,0,0,0,2,2,2}};
 		int gameCount = 0;
 		int amount = 0;
 		int player = 2, enemy = 1, save = 0;
@@ -36,11 +36,18 @@ public class TestClass {
 				amount = scan.nextInt();
 				y = amount/10;
 				x = amount - (y*10);
-				gameTest.changeStoneHorizon(x, y, player, enemy);
+				gameTest.putStone(x, y, player, enemy);
 				save = player;
 				player = enemy;
 				enemy = save;
 			}
+		}
+		if(gameTest.countBPoint(arr)>gameTest.countWPoint(arr)){
+			System.out.println("Black Win");
+		}else if(gameTest.countBPoint(arr)<gameTest.countWPoint(arr)){
+			System.out.println("White Win");
+		}else if(gameTest.countBPoint(arr)==gameTest.countWPoint(arr)){
+			System.out.println("Drow");
 		}
 	}
 }
