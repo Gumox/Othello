@@ -11,39 +11,19 @@ public class ReversiTestForText {
 		int x = 0,y = 0;
 		
 		Scanner scan = new Scanner(System.in);
-		System.out.println("bphoibkjbpiyvjboivjbyv");
 		
 		ReversiGame gameTest = new ReversiGame(arr);
 		while(gameCount < 2){
+			gameTest.ResetGP();
 			gameTest.check(player,  enemy);
-			System.out.printf("arr &i",arr[4][4]);
 			gameTest.countGrayPoint(arr);
 			if(gameCount != 0){
 				if(gameTest.getGrayPoint() != 0){
 					gameCount = 0;
 				}
 			}
-
-			System.out.println("  01234567 ");
-			System.out.println("----------");
-			for(int i = 0; i<8 ;i++){//i=YÃà j=XÃà
-				System.out.printf("%i¤Ó",i);
-				for(int j = 0; j< 8 ;j++){
-					if(arr[i][j] == 0){
-						System.out.println("o");
-					}else if(arr[i][j] == 1){
-						System.out.println("B");
-					}else if(arr[i][j] == 2){
-						System.out.println("W");
-					}else if(arr[i][j] == 3){
-						System.out.println("O");
-					}
-					if(j == 8){
-						System.out.println("\n");
-					}
-				}
-			}
-			System.out.printf("Black: %i White : %i\n", gameTest.countBPoint(arr),gameTest.countWPoint(arr));
+			gameTest.PrintStone();
+			System.out.printf("Black: %s White : %s\n", gameTest.countBPoint(arr),gameTest.countWPoint(arr));
 			if(gameTest.getGrayPoint() == 0){
 				gameCount++;
 				save = player;
@@ -55,6 +35,9 @@ public class ReversiTestForText {
 				y = amount/10;
 				x = amount - (y*10);
 				gameTest.putStone(x, y, player, enemy);
+				save = player;
+				player = enemy;
+				enemy = player;
 			}
 		}
 	}

@@ -11,10 +11,10 @@ public class ReversiGame extends Reversi {
 		checkL(player,enemy);
 		checkD(player,enemy);
 		checkU(player,enemy);
-		//checkRD(player,enemy);
-		//checkRU(player,enemy);
-		//checkLD(player,enemy);
-		//checkLU(player,enemy);
+		checkRD(player,enemy);
+		checkRU(player,enemy);
+		checkLD(player,enemy);
+		checkLU(player,enemy);
 	}
 	public void putStone(int x,int y ,int player,int enemy){
 		if(arr[y][x]==3){
@@ -34,6 +34,15 @@ public class ReversiGame extends Reversi {
 			}
 		}
 	}
+	public void ResetGP(){
+		for(int i = 0; i < 8; i++){
+			for(int j = 0; j<8;j++){
+				if(arr[i][j] == 3){
+					arr[i][j]=0;
+				}
+			}
+		}
+	}
 	public int getGrayPoint(){
 		return grayPoint;
 	}
@@ -43,23 +52,42 @@ public class ReversiGame extends Reversi {
 	public int countBPoint(int[][] arr){
 		for(int i = 0; i < 8; i++){
 			for(int j = 0; j<8;j++){
-				if(arr[i][j] == 3){
+				if(arr[i][j] == 1){
 					countB++;
 				}
 			}
 		}
-		return countW;
+		return countB;
 	}
 	public int countWPoint(int[][] arr){
 		for(int i = 0; i < 8; i++){
 			for(int j = 0; j<8;j++){
-				if(arr[i][j] == 3){
+				if(arr[i][j] == 2){
 					countW++;
 				}
 			}
 		}
 		return countW;
 	}
-	
+	public void PrintStone(){
+		System.out.println("   01234567 ");
+		System.out.println("----------");
+		for(int i = 0; i<8 ;i++){//i=YÃà j=XÃà
+			System.out.printf("%s¤Ó",i);
+			for(int j = 0; j< 8 ;j++){
+				if(arr[i][j] == 0){
+					System.out.printf(".");
+				}else if(arr[i][j] == 1){
+					System.out.printf("B");
+				}else if(arr[i][j] == 2){
+					System.out.printf("W");
+				}else if(arr[i][j] == 3){
+					System.out.printf("*");
+				}
+
+			}
+			System.out.println(" ");
+		}
+	}
 
 }
