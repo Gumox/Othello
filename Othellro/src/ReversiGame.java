@@ -88,5 +88,9 @@ public class ReversiGame extends Reversi {
 			System.out.println(" ");
 		}
 	}
+	public void RecountStone(){
+		countW = 0;
+		countB = 0;
+	}
 
 }

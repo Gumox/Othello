@@ -203,54 +203,55 @@ public class Reversi {
 	public void changeStoneVertical(int x,int y,int player,int enemy){ // 가로선 돌 바꾸기
 		arr[y][x] = player;                                         // Gp를 player로 바꾸기
 		iy = y+1;                                                     
-		while(arr[iy][x] == enemy&&point==0){                    // 체크시작 
+		while(iy<8&&iy>-1&&arr[iy][x] == enemy&&point==0){                    // 체크시작 
 			iy++;                                    
 			if(arr[iy][x] == player){       // 플레이어의 다른 돌 찾음
 				point = 1;
 				iy--;                       // 왔던 방향으로 다시 감
 			}
 		}
-		while(arr[iy][x] == enemy){         // 왔던 방향에 있던 돌은 적의 돌이어야함
+		while(iy<8&&iy>-1&&arr[iy][x] == enemy){         // 왔던 방향에 있던 돌은 적의 돌이어야함
 			arr[iy][x] = player;            // 내돌로 바꿈
 			iy--;                           // 진행, 만일 내가 둔 돌의 위치까지 왔다면 적의 돌이 아니기 때문에 멈춤 
 		}
 		iy = y-1;
-		while(arr[iy][x] == enemy &&point==1){ // 다른 방향으로 체크시작
+		while(iy<8&&iy>-1&&arr[iy][x] == enemy &&point==1){ // 다른 방향으로 체크시작
 			iy--;
 			if(arr[iy][x] == player){ // 플레이어의 다른 돌을 찾아서 루프에서 빠져나옴
 				point = 0;
 				iy++;
 			}
 		}
-		while(arr[iy][y] == enemy){
+		while(iy<8&&iy>-1&&arr[iy][y] == enemy){
 			arr[iy][y] = player;
 			iy++;
 		}
 		iy = 0;                              //i값 리셋 
 	}	
 	public void changeStoneHorizon(int x,int y ,int player,int enemy){ // 세로선 돌 바꾸기
+
 		arr[y][x] = player;                                            // Gp를 player로 바꾸기
 		jx = x+1;                                                     
-		while(arr[y][jx] == enemy &&point==0){                    // 체크시작 
+		while(jx<8 &&jx>-1&&arr[y][jx] == enemy &&point==0){                    // 체크시작 
 			jx++;                                    
 			if(arr[y][jx] == player){       // 플레이어의 다른 돌 찾음
 				point = 1;
 				jx--;                       // 왔던 방향으로 다시 감
 			}
 		}
-		while(arr[y][jx] == enemy){         // 왔던 방향에 있던 돌은 적의 돌이어야함
+		while(jx<8 &&jx>-1&&arr[y][jx] == enemy){         // 왔던 방향에 있던 돌은 적의 돌이어야함
 			arr[y][jx] = player;            // 내돌로 바꿈
 			jx--;                           // 진행, 만일 내가 둔 돌의 위치까지 왔다면 적의 돌이 아니기 때문에 멈춤 
 		}
-		jx = x+1;
-		while(arr[y][jx] == enemy&&point==1){ // 다른 방향으로 체크시작
+		jx = x-1;
+		while(jx<8 &&jx>-1&&arr[y][jx] == enemy&&point==1){ // 다른 방향으로 체크시작
 			jx--;
 			if(arr[y][jx] == player){ // 플레이어의 다른 돌을 찾아서 루프에서 빠져나옴
 				point = 0;
 				jx++;
 			}
 		}
-		while(arr[y][jx] == enemy){
+		while(jx<8 &&jx>-1&&arr[y][jx] == enemy){
 			arr[y][jx] = player;
 			jx++;
 		}
@@ -260,7 +261,7 @@ public class Reversi {
 		arr[y][x] = player;       // Gp를 player로 바꾸기
 		iy = y +1;
 		jx = x+1;                                                     
-		while(arr[iy][jx] == enemy&&point==0){                    // 체크시작 
+		while(iy>-1&& jx<8&&jx>-1&&arr[iy][jx] == enemy&&point==0&&iy<8){                    // 체크시작 
 			iy--;
 			jx--;
 			if(arr[iy][jx] == player){       // 플레이어의 다른 돌 찾음
@@ -269,14 +270,14 @@ public class Reversi {
 				jx++;                       // 왔던 방향으로 다시 감
 			}
 		}
-		while(arr[iy][jx] == enemy){         // 왔던 방향에 있던 돌은 적의 돌이어야함
+		while(iy>-1&& jx<8&&jx>-1&&arr[iy][jx] == enemy){         // 왔던 방향에 있던 돌은 적의 돌이어야함
 			arr[iy][jx] = player;            // 내돌로 바꿈
 			iy++;
 			jx++;                           // 진행, 만일 내가 둔 돌의 위치까지 왔다면 적의 돌이 아니기 때문에 멈춤 
 		}
-		iy = y+1;
-		jx = x+1;
-		while(arr[iy][jx] == enemy&&point==1){ // 다른 방향으로 체크시작
+		iy = y-1;
+		jx = x-1;
+		while(iy>-1&& jx<8&&jx>-1&&arr[iy][jx] == enemy&&point==1){ // 다른 방향으로 체크시작
 			iy++;
 			jx++;
 			if(arr[iy][jx] == player){ // 플레이어의 다른 돌을 찾아서 루프에서 빠져나옴
@@ -285,7 +286,7 @@ public class Reversi {
 				jx--;
 			}
 		}
-		while(arr[iy][jx] == enemy){
+		while(iy>-1&& jx<8&&jx>-1&&arr[iy][jx] == enemy){
 			arr[iy][jx] = player;
 			iy--;
 			jx--;
@@ -299,7 +300,7 @@ public class Reversi {
 		arr[y][x] = player;       // Gp를 player로 바꾸기
 		iy = y-1;
 		jx = x+1;                                                     
-		while(arr[iy][jx] == enemy && point == 0){                    // 체크시작 
+		while(iy<8&&iy>-1&& jx<8&&jx>-1&&arr[iy][jx] == enemy && point == 0){                    // 체크시작 
 			iy++;
 			jx--;
 			if(arr[iy][jx] == player){       // 플레이어의 다른 돌 찾음
@@ -308,7 +309,7 @@ public class Reversi {
 				jx++;                       // 왔던 방향으로 다시 감
 			}
 		}
-		while(arr[iy][jx] == enemy){         // 왔던 방향에 있던 돌은 적의 돌이어야함
+		while(iy>-1&& jx<8&&jx>-1&&arr[iy][jx] == enemy){         // 왔던 방향에 있던 돌은 적의 돌이어야함
 			arr[iy][jx] = player;            // 내돌로 바꿈
 			iy--;
 			jx++;                           // 진행, 만일 내가 둔 돌의 위치까지 왔다면 적의 돌이 아니기 때문에 멈춤 
@@ -316,7 +317,7 @@ public class Reversi {
 		iy = y+1;
 		jx = x-1;
 		
-		while(arr[iy][jx] == enemy && point == 1 ){ // 다른 방향으로 체크시작
+		while(iy<8&&iy>-1&& jx<8&&jx>-1&&arr[iy][jx] == enemy && point == 1){ // 다른 방향으로 체크시작
 			iy++;
 			jx--;
 			if(arr[iy][jx] == player){ // 플레이어의 다른 돌을 찾아서 루프에서 빠져나옴
@@ -325,7 +326,7 @@ public class Reversi {
 				jx++;
 			}
 		}
-		while(arr[iy][jx] == enemy){
+		while(iy>-1&& jx<8&&jx>-1&&arr[iy][jx] == enemy){
 			arr[iy][jx] = player;
 			iy--;
 			jx++;
