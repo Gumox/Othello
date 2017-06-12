@@ -37,7 +37,7 @@ public class ReversiTestForText {
 				gameTest.putStone(x, y, player, enemy);
 				save = player;
 				player = enemy;
-				enemy = player;
+				enemy = save;
 			}
 		}
 	}

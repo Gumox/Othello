@@ -229,7 +229,7 @@ public class Reversi {
 		iy = 0;                              //i값 리셋 
 	}	
 	public void changeStoneHorizon(int x,int y ,int player,int enemy){ // 세로선 돌 바꾸기
-		arr[x][y] = player;                                            // Gp를 player로 바꾸기
+		arr[y][x] = player;                                            // Gp를 player로 바꾸기
 		jx = x+1;                                                     
 		while(arr[y][jx] == enemy &&point==0){                    // 체크시작 
 			jx++;                                    
@@ -313,8 +313,8 @@ public class Reversi {
 			iy--;
 			jx++;                           // 진행, 만일 내가 둔 돌의 위치까지 왔다면 적의 돌이 아니기 때문에 멈춤 
 		}
-		iy = y-1;
-		jx = x+1;
+		iy = y+1;
+		jx = x-1;
 		
 		while(arr[iy][jx] == enemy && point == 1 ){ // 다른 방향으로 체크시작
 			iy++;

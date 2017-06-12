@@ -18,7 +18,6 @@ public class ReversiGame extends Reversi {
 	}
 	public void putStone(int x,int y ,int player,int enemy){
 		if(arr[y][x]==3){
-			arr[y][x] = player;
 			changeStoneHorizon(x,y,player,enemy);
 			changeStoneVertical(x,y,player,enemy);
 			changeStoneDagonal(x,y,player,enemy);
