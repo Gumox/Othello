@@ -1,7 +1,7 @@
 
 public class ReversiGame extends Reversi {
 	public int grayPoint = 0;
-	public int countW =0, countB=0;
+	public int countW =0, countB=0,zeroSp=0;
 
 	public ReversiGame(int[][] a) {
 		super(a);
@@ -91,6 +91,21 @@ public class ReversiGame extends Reversi {
 	public void RecountStone(){
 		countW = 0;
 		countB = 0;
+	}
+	
+	
+	public int getZeroSp(int[][] arr) {
+		for(int i = 0;i<8;i++){
+			for(int j = 0 ; j<8;j++){
+				if(arr[i][j]==0){
+					zeroSp++;
+				}
+			}
+		}
+		return zeroSp;
+	}
+	public void resetZeroSp(){
+		zeroSp=0;
 	}
 
 }
