@@ -69,7 +69,7 @@ public class ReversiGame extends Reversi {
 		return countW;
 	}
 	public void PrintStone(){
-		System.out.println("   01234567 ");
+		System.out.println(" คำ01234567 ");
 		System.out.println("----------");
 		for(int i = 0; i<8 ;i++){//i=Yรเ j=Xรเ
 			System.out.printf("%sคำ",i);

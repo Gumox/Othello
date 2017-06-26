@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class ReversiTestForText {
 	public static void main(String args[]){
-		int[][] arr ={{0,0,2,2,2,2,2,1},{1,1,1,1,1,1,1,1},{1,1,1,1,1,1,1,1},{1,1,1,1,1,1,1,1}
+		int[][] arr ={{0,2,2,2,2,2,2,1},{1,1,1,1,1,1,1,1},{1,1,1,1,1,1,1,1},{1,1,1,1,1,1,1,1}
 	                  ,{1,1,1,1,1,1,1,1},{1,1,1,1,1,1,1,1},{1,1,1,1,1,1,1,1},{1,1,1,1,1,1,1,1}};
 		 //Y,X
 		int gameCount = 0;
@@ -65,8 +65,11 @@ public class ReversiTestForText {
 			gameTest.setZeroGraypoint();
 		}
 		gameTest.PrintStone();
+		gameTest.RecountStone();
 		System.out.println("-----------");
 		System.out.println("-----------");
+		System.out.printf("Black: %s White : %s\n", gameTest.countBPoint(arr),gameTest.countWPoint(arr));
+		gameTest.RecountStone();
 		if(gameTest.countBPoint(arr)>gameTest.countWPoint(arr)){
 			System.out.println("Black Win");
 		}else if(gameTest.countBPoint(arr)<gameTest.countWPoint(arr)){
